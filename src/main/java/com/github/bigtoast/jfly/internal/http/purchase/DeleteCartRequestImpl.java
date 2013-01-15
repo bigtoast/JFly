@@ -13,24 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.bigtoast.jfly.api;
+package com.github.bigtoast.jfly.internal.http.purchase;
 
-import static org.junit.Assert.*;
+import com.github.bigtoast.jfly.api.JFlyValidationException;
+import com.github.bigtoast.jfly.api.purchase.DeleteCartRequest;
 
-import org.junit.Test;
+public class DeleteCartRequestImpl extends CartRequestBase<DeleteCartRequestImpl> implements DeleteCartRequest {
+	
+	private static final long serialVersionUID = -4585030024833557654L;
 
-import com.github.bigtoast.jfly.api.event.EventListQuery;
-import com.github.bigtoast.jfly.api.event.EventListQueryImpl;
-
-public class EventListQueryImplTest {
-
-	@Test
-	public final void testBuildWithOrg() {
-		EventListQuery query = new EventListQueryImpl();
-		
-		String q = query.withOrgId(7).build();
-		
-		assertEquals(q, "http://www.ticketfly.com/api/events/list.json?orgId=7");
+	public DeleteCartRequestImpl( String cartId ){
+		withCartId(cartId);
+	}
+	
+	@Override
+	public void validate() throws JFlyValidationException {
+		if ( getCartId() != null )
+			throw new JFlyValidationException("Cart id must be set.");		
 	}
 
 }

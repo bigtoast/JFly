@@ -13,18 +13,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.bigtoast.jfly.api;
+package com.github.bigtoast.jfly;
 
 import java.io.Serializable;
+import java.net.URL;
+import java.util.List;
 
-/**
- * A command is a request that sends some data so it has a body.
- * 
- * @author andrew
- *
- */
-public interface JFlyCommand extends JFlyRequest , Serializable {
+import com.github.bigtoast.jfly.CreditCard.CreditCardType;
 
-	public String buildBody() throws JFlyValidationException;
+public interface Cart extends Serializable {
+
+	public String getId();
 	
+	public URL getUri();
+	
+	public boolean isExpired();
+	
+	public long getWhenExpires();
+	
+	public List<LineItem> getLineItems();
+	
+	public Charge getShippingCharge();
+	
+	public Charge getHandlingCharge();
+	
+	public List<CreditCardType> getCreditCardTypes();
+	
+	public Address getShippingAddress();
+	
+	public Payment getPayment();
+	
+	public List<Event> getEvents();
+	
+	public Charge getTotalCharge();
 }

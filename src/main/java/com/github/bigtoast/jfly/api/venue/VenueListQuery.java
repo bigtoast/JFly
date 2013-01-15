@@ -13,18 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.bigtoast.jfly.api;
+package com.github.bigtoast.jfly.api.venue;
 
-import java.io.Serializable;
+import com.github.bigtoast.jfly.api.JFlyQuery;
 
-/**
- * A command is a request that sends some data so it has a body.
- * 
- * @author andrew
- *
- */
-public interface JFlyCommand extends JFlyRequest , Serializable {
-
-	public String buildBody() throws JFlyValidationException;
+public interface VenueListQuery extends JFlyQuery<VenueListQuery>{
 	
+    public VenueListQuery withOrgId(long orgId);
+	
+	public VenueListQuery withVenueId(long venueId);
+	
+	public boolean hasOrgId();
+	
+	public boolean hasVenueId();
+   
+	public long getOrgId();
+	
+	public long getVenueId();
 }

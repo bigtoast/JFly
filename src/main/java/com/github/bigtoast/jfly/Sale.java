@@ -13,18 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.bigtoast.jfly.api;
+
+package com.github.bigtoast.jfly;
 
 import java.io.Serializable;
+import java.net.URL;
+import java.util.List;
 
-/**
- * A command is a request that sends some data so it has a body.
- * 
- * @author andrew
- *
- */
-public interface JFlyCommand extends JFlyRequest , Serializable {
+import org.joda.time.DateTime;
 
-	public String buildBody() throws JFlyValidationException;
-	
+public interface Sale extends Serializable {
+
+	public long getId();
+	public URL getUri();
+	public DateTime createdAt();
+	public List<LineItem> getLineItems();
+	public Charge getShippingCharge();
+	public Charge getHandlingCharge();
+	public Charge getTotalCharge();
+	public Address getShippingAddress();
+	public Payment getPayment();
+	// what is custom text and why is it used?
+	//public List<CustomEventText> getCustomText();
+	public List<Event> getEvents();
 }

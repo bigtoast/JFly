@@ -13,18 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.bigtoast.jfly.api;
 
-import java.io.Serializable;
+package com.github.bigtoast.jfly;
+
+import com.github.bigtoast.jfly.Address.AddressBuilder;
+import com.github.bigtoast.jfly.CreditCard.CreditCardBuilder;
+import com.github.bigtoast.jfly.Payment.PaymentBuilder;
 
 /**
- * A command is a request that sends some data so it has a body.
+ * Factory interface for easy access to all buildable entities. 
  * 
  * @author andrew
  *
  */
-public interface JFlyCommand extends JFlyRequest , Serializable {
-
-	public String buildBody() throws JFlyValidationException;
+public interface EntityBuilderFactories {
 	
+	public AddressBuilder address();
+	
+	public PaymentBuilder payment();
+	
+	public CreditCardBuilder creditCard();
+
 }

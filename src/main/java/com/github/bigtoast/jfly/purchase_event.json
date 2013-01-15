@@ -1,0 +1,68 @@
+{
+    "id": 44181,
+    "uri": "http://api.ticketfly.com/v2/purchase/event/44181",
+    "name": "Life is good Festival Saturday Tickets",
+    "venue": {
+        "name": "Prowse Farm",
+        "timeZone": "America/New_York",
+        "address": {
+            "address1": "5 Blue Hill River Road",
+            "address2": "",
+            "city": "Canton",
+            "postalCode": "02021",
+            "stateProvince": "Massachusetts",
+            "lat": 42.208315,
+            "lon": -71.119309
+￼￼￼} },
+    "headLiner": "Jayden",
+    "supportingArtists": null,
+    "images": null,
+    "onSale": "2011-11-14T17:40:14Z",
+    "offSale": "2011-11-14T17:40:14Z",
+    "startDate": "2011-09-24T17:45:00Z",
+    "endDate": null,
+    "promoCodeApplied", null,
+    "inventory": [
+        {
+            "id": 145028,
+            "name": "Adult - Saturday Single Day Ticket",
+            "price": 65,
+            "available": true,
+            "purchaseLimit": 10,
+            "deliveryOptions": [
+                {
+                    "id": "WILL_CALL",
+                    "name": "Will Call",
+                    "message": "Your Tickets will be held at Will Call.  Please bring photo ID and
+credit card of purchase."
+                },
+                {
+                    "id": "PRINT_AT_HOME",
+                    "name": "Print At Home",
+                    "message": "Your tickets will be delivered in PDF format along with your order
+confirmation email."
+                }
+] },
+        {
+            "id": 145029,
+            "name": "Child - Saturday Single Day Ticket",
+            "price": 20,
+            "available": true,
+            "purchaseLimit": 10,
+            "deliveryOptions": [
+                {
+                    "id": "WILL_CALL",
+                    "name": "Will Call",
+                    "message": "Your Tickets will be held at Will Call.  Please bring photo ID and
+credit card of purchase."
+                },
+                {
+                    "id": "PRINT_AT_HOME",
+                    "name": "Print At Home",
+                    "message": "Your tickets will be delivered in PDF format along with your order
+confirmation email."
+                }
+]
+￼￼￼￼￼
+} ]
+}

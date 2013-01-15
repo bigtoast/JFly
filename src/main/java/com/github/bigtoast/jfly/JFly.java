@@ -15,8 +15,24 @@
  */
 package com.github.bigtoast.jfly;
 
-import com.github.bigtoast.jfly.api.EventMethods;
+import com.github.bigtoast.jfly.api.event.EventMethods;
+import com.github.bigtoast.jfly.api.org.OrgMethods;
+import com.github.bigtoast.jfly.api.purchase.PurchaseMethods;
+import com.github.bigtoast.jfly.api.purchase.PurchaseRequestFactory;
+import com.github.bigtoast.jfly.api.venue.VenueMethods;
 
-public interface JFly extends EventMethods {
-
-}
+/**
+ * JFly is the client interface to all things jfly. A client should never have to 
+ * implement classes directly ( although they can it they want to be sadistic ). The
+ * JFly api provides a dsl for requests, entity builders/types and command/request executions.
+ * 
+ * @author andrew
+ *
+ */
+public interface JFly extends 
+  EventMethods, 
+  VenueMethods, 
+  OrgMethods, 
+  PurchaseMethods,
+  PurchaseRequestFactory,
+  EntityBuilderFactories {}

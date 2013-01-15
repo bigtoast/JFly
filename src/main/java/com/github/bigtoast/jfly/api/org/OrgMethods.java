@@ -13,18 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.bigtoast.jfly.api;
+package com.github.bigtoast.jfly.api.org;
 
-import java.io.Serializable;
+import com.github.bigtoast.jfly.Org;
+import com.github.bigtoast.jfly.api.PagenatedResponse;
 
-/**
- * A command is a request that sends some data so it has a body.
- * 
- * @author andrew
- *
- */
-public interface JFlyCommand extends JFlyRequest , Serializable {
-
-	public String buildBody() throws JFlyValidationException;
-	
+public interface OrgMethods {
+	public PagenatedResponse<Org> execute(OrgListQuery query);
 }

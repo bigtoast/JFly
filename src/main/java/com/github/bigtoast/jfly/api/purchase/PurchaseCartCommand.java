@@ -13,18 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.bigtoast.jfly.api;
 
-import java.io.Serializable;
+package com.github.bigtoast.jfly.api.purchase;
 
 /**
- * A command is a request that sends some data so it has a body.
+ * Purchase cart command will try to purchase an existing cart. duh.
  * 
  * @author andrew
  *
  */
-public interface JFlyCommand extends JFlyRequest , Serializable {
+public interface PurchaseCartCommand extends CartCommand<PurchaseCartCommand> {
 
-	public String buildBody() throws JFlyValidationException;
-	
 }

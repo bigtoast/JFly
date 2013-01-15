@@ -13,18 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.bigtoast.jfly.api;
 
-import java.io.Serializable;
+package com.github.bigtoast.jfly;
 
-/**
- * A command is a request that sends some data so it has a body.
- * 
- * @author andrew
- *
- */
-public interface JFlyCommand extends JFlyRequest , Serializable {
+import com.github.bigtoast.jfly.Address.AddressBuilder;
+import com.github.bigtoast.jfly.internal.json.AddressImpl;
 
-	public String buildBody() throws JFlyValidationException;
-	
+public class Builders {
+
+	public static AddressBuilder newAddressBuilder() {
+		return new AddressImpl();
+	}
 }

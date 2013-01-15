@@ -13,18 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.github.bigtoast.jfly.api;
 
-import java.io.Serializable;
 
-/**
- * A command is a request that sends some data so it has a body.
- * 
- * @author andrew
- *
- */
-public interface JFlyCommand extends JFlyRequest , Serializable {
-
-	public String buildBody() throws JFlyValidationException;
+public interface JFlyQuery<Q extends JFlyQuery<Q>> extends JFlyRequest {
 	
+	public Q withMaxResults(int cnt);
+	
+	public Q withPageNum(int num);
+	
+    public int getPageNum();
+	
+	public int getMaxResults();
+	
+	public boolean hasMaxResults();
+	
+	public boolean hasPageNum();
 }

@@ -17,14 +17,12 @@ package com.github.bigtoast.jfly.api;
 
 import java.io.Serializable;
 
-/**
- * A command is a request that sends some data so it has a body.
- * 
- * @author andrew
- *
- */
-public interface JFlyCommand extends JFlyRequest , Serializable {
-
-	public String buildBody() throws JFlyValidationException;
+public interface JFlyRequest extends Serializable {
 	
+	public boolean isValid();
+	
+	public void validate() throws JFlyValidationException;
+	
+	public String build() throws JFlyValidationException;
+
 }

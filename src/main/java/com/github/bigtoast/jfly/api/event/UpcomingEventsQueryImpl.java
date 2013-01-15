@@ -13,18 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.bigtoast.jfly.api;
 
-import java.io.Serializable;
+package com.github.bigtoast.jfly.api.event;
 
-/**
- * A command is a request that sends some data so it has a body.
- * 
- * @author andrew
- *
- */
-public interface JFlyCommand extends JFlyRequest , Serializable {
+import com.github.bigtoast.jfly.api.JFlyValidationException;
 
-	public String buildBody() throws JFlyValidationException;
+
+public class UpcomingEventsQueryImpl extends EventQueryBase<UpcomingEventsQueryImpl> implements
+		UpcomingEventsQuery {
+
+	private static final long serialVersionUID = 2756982930804646787L;
+
+	public String getBaseUrl(){ 
+		return baseRestUrl + "/events/onsale.json?";
+	}
+		
+	@Override
+	public void validate() throws JFlyValidationException {
+		if ( getOrgId() == -1 || getVenueId() == -1 )
+			throw new JFlyValidationException("OrgId and VenueId must both be set.");		
+	}
 	
 }

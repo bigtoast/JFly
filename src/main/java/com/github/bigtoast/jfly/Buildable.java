@@ -13,18 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.bigtoast.jfly.api;
 
-import java.io.Serializable;
+package com.github.bigtoast.jfly;
 
-/**
- * A command is a request that sends some data so it has a body.
- * 
- * @author andrew
- *
- */
-public interface JFlyCommand extends JFlyRequest , Serializable {
-
-	public String buildBody() throws JFlyValidationException;
+public interface Buildable<E, B extends EntityBuilder<E>> {
+	
+	/**
+	 * return a new builder initialized with the values from
+	 * the object this is invoked upon. Changing values of the 
+	 * builder does not change the values of 'this'.
+	 * 
+	 * @return EntityBuilder
+	 */
+	public B getBuilder();
+	
+	/**
+	 * return an empty builder for this type.
+	 * 
+	 * @return EntityBuilder
+	 */
+	public B newBuilder();
 	
 }

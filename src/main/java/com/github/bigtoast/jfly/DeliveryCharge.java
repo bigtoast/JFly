@@ -13,18 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.bigtoast.jfly.api;
-
-import java.io.Serializable;
+package com.github.bigtoast.jfly;
 
 /**
- * A command is a request that sends some data so it has a body.
+ * A delivery charge is a delivery type with a charge attached to it.
  * 
  * @author andrew
  *
  */
-public interface JFlyCommand extends JFlyRequest , Serializable {
-
-	public String buildBody() throws JFlyValidationException;
-	
-}
+public interface DeliveryCharge extends Charge, DeliveryType {}

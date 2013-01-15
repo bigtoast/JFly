@@ -1,0 +1,28 @@
+{
+"id": "12345",
+"uri": "https://api.ticketfly.com/v2/purchase/user/12345",
+"emailAddress": "joe@test.com",
+"firstName": "Joe",
+"lastName": "Smith",
+"billing": {
+    "firstName": "Test",
+    "lastName": "User",
+    "address1": "85 Federal Street",
+    "address2": "#1",
+    "city": "San Francisco",
+    "stateProvince": "CA",
+    "postalCode": "94107",
+    "country": "USA",
+    "phoneNumber": "4151231234"
+},
+"shipping": {
+    "firstName": "Test",
+    "lastName": "User",
+    "address1": "85 Federal Street",
+    "address2": "#1",
+    "city": "San Francisco",
+    "stateProvince": "CA",
+    "postalCode": "94107",
+    "country": "USA",
+    "phoneNumber": "4151231234"
+} }
