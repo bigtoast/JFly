@@ -15,13 +15,14 @@
  */
 package com.github.bigtoast.jfly.api.org;
 
+import com.github.bigtoast.jfly.Org;
 import com.github.bigtoast.jfly.api.JFlyQuery;
 
-public interface OrgListQuery extends JFlyQuery<OrgListQuery> {
+public interface OrgListQuery extends JFlyQuery<OrgListQuery,Org> {
 	
-	public boolean hasOrgId();
+	public boolean hasId();
 	
-	public OrgListQuery withOrgId(long orgId);
+	public OrgListQuery withId(long orgId);
 	
-	public long getOrgId(); 
+	public long getId();
 }

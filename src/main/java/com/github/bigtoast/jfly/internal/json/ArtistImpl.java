@@ -24,12 +24,13 @@ import com.github.bigtoast.jfly.Artist;
 import com.github.bigtoast.jfly.ImageMeta;
 import com.github.bigtoast.jfly.YouTubeMeta;
 
+import com.github.bigtoast.jfly.internal.util.JFlyUtils;
 import org.codehaus.jackson.*;
 
 public class ArtistImpl implements Artist {
 
 	private static final long serialVersionUID = -5828314561317895401L;
-	private long id;
+	private Long id;
 	private String name;
 	private String description = "";
 	private URL siteUrl;
@@ -46,57 +47,61 @@ public class ArtistImpl implements Artist {
 	private List<YouTubeMeta> youTubeVideos = new LinkedList<YouTubeMeta>();;
 	
 	public ArtistImpl(JsonParser parser) throws JsonParseException, IOException{
-      if (parser.nextToken() != JsonToken.START_OBJECT) {
-        throw new IOException("Expected data to start with an Object");
-      }
+        if (parser.getCurrentToken() != JsonToken.START_OBJECT) {
+            if (parser.getCurrentToken() == JsonToken.VALUE_NULL)
+                return;
+            throw new IOException("Expected data to start with an Object. Found " + parser.getCurrentToken());
+        }
       
       while ( parser.nextToken() != JsonToken.END_OBJECT){
-    	  String fname = parser.getCurrentName();
+    	  String fName = parser.getCurrentName();
     	  parser.nextToken();
     	  
-    	  if ( fname.equals("id") )
+    	  if ( fName.equals("id") )
     	    id = parser.getLongValue();
-    	  else if ( fname.equals("name"))
+    	  else if ( fName.equals("name"))
     		name = parser.getText();
-    	  else if ( fname.equals("eventDescription"))
+    	  else if ( fName.equals("eventDescription"))
     		description = parser.getText();
-    	  else if ( fname.equals("urlOfficialWebsite"))
-    		siteUrl = new URL( parser.getText());
-    	  else if ( fname.equals("urlMySpace"))
-    		myspaceUrl = new URL( parser.getText());
-    	  else if ( fname.equals("urlFacebook"))
-    	    facebookUrl = new URL( parser.getText());
-    	  else if ( fname.equals("twitterScreenName"))
+    	  else if ( fName.equals("urlOfficialWebsite"))
+    		siteUrl = JFlyUtils.parseURL(parser.getText());
+    	  else if ( fName.equals("urlMySpace"))
+    		myspaceUrl = JFlyUtils.parseURL( parser.getText());
+    	  else if ( fName.equals("urlFacebook"))
+    	    facebookUrl = JFlyUtils.parseURL( parser.getText());
+    	  else if ( fName.equals("twitterScreenName"))
     		twitterScreenName = parser.getText();
-    	  else if ( fname.equals("urlAudio"))
-    		audioUrl = new URL( parser.getText() );
-    	  else if ( fname.equals("urlPurchaseMusic"))
-    		purchaseUrl = new URL( parser.getText());
-    	  else if ( fname.equals("embedAudio"))
+    	  else if ( fName.equals("urlAudio"))
+    		audioUrl = JFlyUtils.parseURL( parser.getText() );
+    	  else if ( fName.equals("urlPurchaseMusic"))
+    		purchaseUrl = JFlyUtils.parseURL( parser.getText());
+    	  else if ( fName.equals("embedAudio"))
     		audioHtml = parser.getText();
-    	  else if ( fname.equals("embedVideo"))
+    	  else if ( fName.equals("embedVideo"))
     		videoHtml = parser.getText();
-    	  else if ( fname.equals("idMobileFriendly") )
+    	  else if ( fName.equals("idMobileFriendly") )
     		mobileFriendly = parser.getBooleanValue();
-    	  else if ( fname.equals("images") ) {
-    		  if ( parser.nextToken().equals(JsonToken.START_ARRAY)) {
+    	  else if ( fName.equals("images") ) {
+    		  if ( parser.getCurrentToken().equals(JsonToken.START_ARRAY)) {
     		    while ( parser.nextToken() != JsonToken.END_ARRAY ){
     		    	images.add( new ImageMetaImpl( parser ) );
     		    }
     		  }
-    	  } else if ( fname.equals("youtubeVideos")) {
-    		  if ( parser.nextToken().equals(JsonToken.START_ARRAY)) {
+    	  } else if ( fName.equals("youtubeVideos")) {
+    		  if ( parser.getCurrentToken().equals(JsonToken.START_ARRAY)) {
       		    while ( parser.nextToken() != JsonToken.END_ARRAY ){
       		    	youTubeVideos.add( new YouTubeMetaImpl( parser ) );
       		    }
       		  }
-    	  }  
+    	  } else if ( parser.getCurrentToken() == JsonToken.START_OBJECT || parser.getCurrentToken() == JsonToken.START_ARRAY ) {
+              parser.skipChildren();
+          } 
       } // end while
 	}
 	
 	
 	@Override
-	public long getId() { return id; }
+	public Long getId() { return id; }
 
 	@Override
 	public String getName() { return name; }

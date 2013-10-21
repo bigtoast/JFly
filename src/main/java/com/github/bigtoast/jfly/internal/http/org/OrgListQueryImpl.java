@@ -1,16 +1,19 @@
 package com.github.bigtoast.jfly.internal.http.org;
 
+import com.github.bigtoast.jfly.JFly;
+import com.github.bigtoast.jfly.Org;
 import com.github.bigtoast.jfly.api.JFlyValidationException;
+import com.github.bigtoast.jfly.api.PaginatedResponse;
 import com.github.bigtoast.jfly.api.org.OrgListQuery;
 import com.github.bigtoast.jfly.internal.http.JFlyQueryBase;
 
-public class OrgListQueryImpl extends JFlyQueryBase<OrgListQuery> implements OrgListQuery {
+public class OrgListQueryImpl extends JFlyQueryBase<OrgListQuery,Org> implements OrgListQuery {
 
 	private long orgId = -1;
 	
 	private static final long serialVersionUID = 8903050803801713926L;
 	
-	private String baseOrgsUrl = baseRestUrl + "/orgs/list.json";
+	private String baseOrgsUrl = baseRestUrl + "/orgs/list.json?";
 
 	@Override
 	public boolean isValid() {
@@ -30,7 +33,7 @@ public class OrgListQueryImpl extends JFlyQueryBase<OrgListQuery> implements Org
 	public String build() throws JFlyValidationException {
 		validate();
 		StringBuilder str = new StringBuilder(getBaseOrgsUrl());
-		if ( hasOrgId() ) {
+		if ( hasId() ) {
 			str.append("orgId=");
 			str.append(orgId);
 		}
@@ -46,19 +49,22 @@ public class OrgListQueryImpl extends JFlyQueryBase<OrgListQuery> implements Org
 	}
 
 	@Override
-	public boolean hasOrgId() {
+	public boolean hasId() {
 		return checkHas(orgId);
 	}
 
 	@Override
-	public OrgListQuery withOrgId(long orgId) {
+	public OrgListQuery withId(long orgId) {
 		this.orgId = orgId;
 		return this;
 	}
 
 	@Override
-	public long getOrgId() {
+	public long getId() {
 		return orgId;
 	}
+
+    @Override
+    public PaginatedResponse<Org> execute( JFly jFly ) { return jFly.execute(this); }
 
 }

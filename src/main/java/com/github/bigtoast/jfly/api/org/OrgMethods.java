@@ -16,8 +16,11 @@
 package com.github.bigtoast.jfly.api.org;
 
 import com.github.bigtoast.jfly.Org;
-import com.github.bigtoast.jfly.api.PagenatedResponse;
+import com.github.bigtoast.jfly.api.PaginatedResponse;
 
 public interface OrgMethods {
-	public PagenatedResponse<Org> execute(OrgListQuery query);
+
+	public PaginatedResponse<Org> execute(OrgListQuery query);
+
+    public OrgListQuery orgs();
 }

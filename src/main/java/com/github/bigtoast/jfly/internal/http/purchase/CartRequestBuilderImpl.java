@@ -18,11 +18,10 @@ package com.github.bigtoast.jfly.internal.http.purchase;
 
 import java.util.LinkedList;
 
+import com.github.bigtoast.jfly.Address;
+import com.github.bigtoast.jfly.Payment;
 import com.github.bigtoast.jfly.api.JFlyValidationException;
-import com.github.bigtoast.jfly.api.purchase.AddToCartCommand;
-import com.github.bigtoast.jfly.api.purchase.CartRequestBuilder;
-import com.github.bigtoast.jfly.api.purchase.DeleteCartRequest;
-import com.github.bigtoast.jfly.api.purchase.DoAllocate;
+import com.github.bigtoast.jfly.api.purchase.*;
 
 public class CartRequestBuilderImpl implements CartRequestBuilder {
 	
@@ -47,5 +46,40 @@ public class CartRequestBuilderImpl implements CartRequestBuilder {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+    @Override
+    public GetCartRequest get() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public PurchaseCartCommand purchase() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public LineItemCommandBuilder lineItem(long lineItem) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public SetPaymentCommand withPayment(Payment payment) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public SetPaymentCommand payment() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public SetShippingAddressCommand withShippingAddress(Address address) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public SetShippingAddressCommand shipping() {
+        throw new UnsupportedOperationException();
+    }
 
 }

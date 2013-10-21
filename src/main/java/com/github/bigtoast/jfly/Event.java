@@ -23,8 +23,14 @@ import org.joda.time.DateTime;
 
 
 public interface Event extends Serializable {
-	
-	public long getId();
+
+    public interface OnSaleDate extends Serializable {
+        public String getName();
+        public DateTime getStartDate();
+        public DateTime getEndDate();
+    }
+
+	public Long getId();
 	public DateTime getDateCreated();
 	public boolean isFeatured();
 	public boolean isPublished();
@@ -38,11 +44,11 @@ public interface Event extends Serializable {
 	public DateTime getDoorsDate();
 	public DateTime getOnSaleDate();
 	public DateTime getOffSaleDate();
-	public List<DateTime> getOnSaleDates();
+	public List<OnSaleDate> getOnSaleDates();
 	public String getTopLineInfo();
 	public String getPromoterName();
-	public String getSponserName();
-	public ImageMeta getSponserImage();
+	public String getSponsorName();
+	public ImageMeta getSponsorImage();
 	public String getAdditionalInfo();
 	public String getAdditionalTicketText();
 	public String getAgeLimitCode();
@@ -57,7 +63,7 @@ public interface Event extends Serializable {
 	public DateTime getLastUpdated();
 	public List<URL> getExternalTicketingUrls();
 	public Org getOrg();
-	public long getFacebookEventId();
+	public Long getFacebookEventId();
 	public List<Artist> getHeadliners();
 	public List<Artist> getSupporters();
 	public Venue getVenue();

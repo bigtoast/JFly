@@ -16,18 +16,28 @@
 package com.github.bigtoast.jfly.api.event;
 
 import com.github.bigtoast.jfly.Event;
-import com.github.bigtoast.jfly.api.PagenatedResponse;
+import com.github.bigtoast.jfly.api.PaginatedResponse;
 
 public interface EventMethods {
+
+    public EventListQuery events();
 	
-	public PagenatedResponse<Event> execute(EventListQuery query);
-	
-	public PagenatedResponse<Event> execute(PastEventsQuery query);
-	
-	public PagenatedResponse<Event> execute(UpcomingEventsQuery query);
-	
-	public PagenatedResponse<Event> execute(JustAnnouncedEventsQuery query);
-	
-	public PagenatedResponse<Event> execute(FeaturedEventsQuery query);
+	public PaginatedResponse<Event> execute(EventListQuery query);
+
+    public PastEventsQuery pastEvents();
+
+	public PaginatedResponse<Event> execute(PastEventsQuery query);
+
+    public UpcomingEventsQuery upcomingEvents();
+
+	public PaginatedResponse<Event> execute(UpcomingEventsQuery query);
+
+    public JustAnnouncedEventsQuery justAnnouncedEvents();
+
+	public PaginatedResponse<Event> execute(JustAnnouncedEventsQuery query);
+
+    public FeaturedEventsQuery featuredEvents();
+
+	public PaginatedResponse<Event> execute(FeaturedEventsQuery query);
 	
 }

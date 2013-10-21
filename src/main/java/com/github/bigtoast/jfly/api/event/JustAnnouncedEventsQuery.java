@@ -17,12 +17,13 @@ package com.github.bigtoast.jfly.api.event;
 
 import java.util.Set;
 
+import com.github.bigtoast.jfly.Event;
+import com.github.bigtoast.jfly.api.JFlyQuery;
 import org.joda.time.DateTime;
 
 import com.github.bigtoast.jfly.api.FieldGroup;
-import com.github.bigtoast.jfly.api.JFlyRequest;
 
-public interface JustAnnouncedEventsQuery extends JFlyRequest {
+public interface JustAnnouncedEventsQuery extends JFlyQuery<JustAnnouncedEventsQuery,Event> {
 	
     public JustAnnouncedEventsQuery withArtistName(String name);
 	

@@ -16,10 +16,12 @@
 
 package com.github.bigtoast.jfly.internal.http;
 
+import com.github.bigtoast.jfly.JFly;
 import com.github.bigtoast.jfly.api.JFlyQuery;
 import com.github.bigtoast.jfly.api.JFlyRequestBase;
+import com.github.bigtoast.jfly.api.PaginatedResponse;
 
-public abstract class JFlyQueryBase<Q extends JFlyQuery<Q>> extends JFlyRequestBase implements JFlyQuery<Q> {
+public abstract class JFlyQueryBase<Q extends JFlyQuery<Q,R>,R> extends JFlyRequestBase implements JFlyQuery<Q,R> {
 
 	private int maxResults = -1;
 	private int pageNum = -1;

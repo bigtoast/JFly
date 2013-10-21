@@ -18,13 +18,13 @@ package com.github.bigtoast.jfly.api;
 import com.github.bigtoast.jfly.Org;
 
 /**
- * This is a pagenated response where all results belong to a 
+ * This is a paginated response where all results belong to a
  * single org.
  * 
  * @author Andrew Headrick
  *
  * @param <T> contained type in response
  */
-public interface OrgPagenatedResponse<T> extends PagenatedResponse<T> {
+public interface OrgPagenatedResponse<T> extends PaginatedResponse<T> {
 	public Org getOrg();
 }

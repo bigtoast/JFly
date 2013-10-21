@@ -1,6 +1,6 @@
 package com.github.bigtoast.jfly.api.purchase;
 
-import com.github.bigtoast.jfly.DeliveryCharge.DeliveryType;
+import com.github.bigtoast.jfly.DeliveryType;
 
 public interface UpdateLineItemCommand extends CartRequest<UpdateLineItemCommand> {
 

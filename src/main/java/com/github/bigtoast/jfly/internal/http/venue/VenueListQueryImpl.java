@@ -15,15 +15,18 @@
  */
 package com.github.bigtoast.jfly.internal.http.venue;
 
+import com.github.bigtoast.jfly.JFly;
+import com.github.bigtoast.jfly.Venue;
 import com.github.bigtoast.jfly.api.JFlyValidationException;
+import com.github.bigtoast.jfly.api.PaginatedResponse;
 import com.github.bigtoast.jfly.api.venue.VenueListQuery;
 import com.github.bigtoast.jfly.internal.http.JFlyQueryBase;
 
-public class VenueListQueryImpl extends JFlyQueryBase<VenueListQuery> implements VenueListQuery {
+public class VenueListQueryImpl extends JFlyQueryBase<VenueListQuery,Venue> implements VenueListQuery {
 	
 	private static final long serialVersionUID = 5234265609495326092L;
 
-	VenueListQueryImpl(){}
+	public VenueListQueryImpl(){}
 	
 	private long orgId = -1;
 	private long venueId = -1; 
@@ -39,7 +42,7 @@ public class VenueListQueryImpl extends JFlyQueryBase<VenueListQuery> implements
 	}
 
 	@Override
-	public VenueListQuery withVenueId(long venueId) {
+	public VenueListQuery withId(long venueId) {
 		this.venueId = venueId;
 		return this;
 	}
@@ -50,15 +53,15 @@ public class VenueListQueryImpl extends JFlyQueryBase<VenueListQuery> implements
 	}
 
 	@Override
-	public long getVenueId() {
+	public long getId() {
 		return venueId;
 	}
 
 	@Override
 	public boolean hasOrgId() { return checkHas( orgId ); }
+
 	@Override
-	public boolean hasVenueId() { return checkHas( venueId ); }
-	
+	public boolean hasId() { return checkHas( venueId ); }
 
 	@Override
 	public boolean isValid() {
@@ -78,7 +81,7 @@ public class VenueListQueryImpl extends JFlyQueryBase<VenueListQuery> implements
 			str.append("orgId=");
 			str.append(orgId);
 		}
-		if ( hasVenueId() ){
+		if ( hasId() ){
 			str.append("&venueId=");
 		}
 		if ( hasPageNum() ){
@@ -92,6 +95,7 @@ public class VenueListQueryImpl extends JFlyQueryBase<VenueListQuery> implements
 		return str.toString();
 	}
 
-
+    @Override
+    public PaginatedResponse<Venue> execute( JFly jFly ) { return jFly.execute(this); }
 
 }

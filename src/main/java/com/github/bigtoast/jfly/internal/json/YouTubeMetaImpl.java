@@ -29,20 +29,24 @@ public class YouTubeMetaImpl implements YouTubeMeta {
 	
 	
 	public YouTubeMetaImpl(JsonParser parser) throws JsonParseException, IOException {
-      if (parser.nextToken() != JsonToken.START_OBJECT) {
-	    throw new IOException("Expected data to start with an Object");
-	  }
+        if (parser.getCurrentToken() != JsonToken.START_OBJECT) {
+            if ( parser.getCurrentToken() == JsonToken.VALUE_NULL )
+                return;
+            throw new IOException("Expected data to start with an Object. Found " + parser.getCurrentToken() );
+        }
       
       while ( parser.nextToken() != JsonToken.END_OBJECT ){
-    	  String fname = parser.getCurrentName();
+    	  String fName = parser.getCurrentName();
           parser.nextToken();
           
-          if ( fname.equals("videoId") )
+          if ( fName.equals("videoId") )
             videoId = parser.getText();
-          else if ( fname.equals("title") )
+          else if ( fName.equals("title") )
         	title = parser.getText();
-          else if ( fname.equals("embedCodeIframe"))
+          else if ( fName.equals("embedCodeIframe"))
         	iframe = parser.getText();
+          else if ( parser.getCurrentToken() == JsonToken.START_OBJECT || parser.getCurrentToken() == JsonToken.START_ARRAY )
+              parser.skipChildren();
       }
 	}
 	

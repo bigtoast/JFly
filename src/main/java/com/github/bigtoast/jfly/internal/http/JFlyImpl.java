@@ -19,10 +19,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 
+import com.github.bigtoast.jfly.internal.http.event.*;
+import com.github.bigtoast.jfly.internal.http.org.OrgListQueryImpl;
+import com.github.bigtoast.jfly.internal.http.venue.VenueListQueryImpl;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
@@ -43,7 +45,7 @@ import com.github.bigtoast.jfly.Venue;
 import com.github.bigtoast.jfly.api.Empty;
 import com.github.bigtoast.jfly.api.JFlyException;
 import com.github.bigtoast.jfly.api.JFlyResponse;
-import com.github.bigtoast.jfly.api.PagenatedResponse;
+import com.github.bigtoast.jfly.api.PaginatedResponse;
 import com.github.bigtoast.jfly.api.event.EventListQuery;
 import com.github.bigtoast.jfly.api.event.FeaturedEventsQuery;
 import com.github.bigtoast.jfly.api.event.JustAnnouncedEventsQuery;
@@ -62,7 +64,7 @@ import com.github.bigtoast.jfly.internal.json.CreditCardImpl;
 import com.github.bigtoast.jfly.internal.json.EventImpl;
 import com.github.bigtoast.jfly.internal.json.JFlyResponseImpl;
 import com.github.bigtoast.jfly.internal.json.OrgImpl;
-import com.github.bigtoast.jfly.internal.json.PagenatedResponseImpl;
+import com.github.bigtoast.jfly.internal.json.PaginatedResponseImpl;
 import com.github.bigtoast.jfly.internal.json.PaymentImpl;
 import com.github.bigtoast.jfly.internal.json.VenueImpl;
 
@@ -71,47 +73,45 @@ public class JFlyImpl implements JFly {
 	private JsonFactory factory = new JsonFactory();
 	
 	@Override
-	public PagenatedResponse<Event> execute(EventListQuery query) {
+	public PaginatedResponse<Event> execute(EventListQuery query) {
 		JsonParser parser = executeGet(query.build());
-		return new PagenatedResponseImpl<Event,EventImpl>(parser, "events", EventImpl.class);
+		return new PaginatedResponseImpl<Event,EventImpl>(parser, "events", EventImpl.class);
 	}
 
 	@Override
-	public PagenatedResponse<Event> execute(PastEventsQuery query) {
+	public PaginatedResponse<Event> execute(PastEventsQuery query) {
 		JsonParser parser = executeGet(query.build());
-		return new PagenatedResponseImpl<Event,EventImpl>(parser, "events", EventImpl.class);
+		return new PaginatedResponseImpl<Event,EventImpl>(parser, "events", EventImpl.class);
 	}
 
 	@Override
-	public PagenatedResponse<Event> execute(UpcomingEventsQuery query) {
+	public PaginatedResponse<Event> execute(UpcomingEventsQuery query) {
 		JsonParser parser = executeGet(query.build());
-		return new PagenatedResponseImpl<Event,EventImpl>(parser, "events", EventImpl.class);
+		return new PaginatedResponseImpl<Event,EventImpl>(parser, "events", EventImpl.class);
 	}
 
 	@Override
-	public PagenatedResponse<Event> execute(JustAnnouncedEventsQuery query) {
+	public PaginatedResponse<Event> execute(JustAnnouncedEventsQuery query) {
 		JsonParser parser = executeGet(query.build());
-		return new PagenatedResponseImpl<Event,EventImpl>(parser, "events", EventImpl.class);
+		return new PaginatedResponseImpl<Event,EventImpl>(parser, "events", EventImpl.class);
 	}
 
 	@Override
-	public PagenatedResponse<Event> execute(FeaturedEventsQuery query) {
+	public PaginatedResponse<Event> execute(FeaturedEventsQuery query) {
 		JsonParser parser = executeGet(query.build());
-		return new PagenatedResponseImpl<Event,EventImpl>(parser, "events", EventImpl.class);
-	}
-	
-	
-	
-	@Override
-	public PagenatedResponse<Org> execute(OrgListQuery query) {
-		JsonParser parser = executeGet(query.build());
-		return new PagenatedResponseImpl<Org,OrgImpl>(parser, "orgs", OrgImpl.class);
+		return new PaginatedResponseImpl<Event,EventImpl>(parser, "events", EventImpl.class);
 	}
 
 	@Override
-	public PagenatedResponse<Venue> execute(VenueListQuery query) {
+	public PaginatedResponse<Org> execute(OrgListQuery query) {
 		JsonParser parser = executeGet(query.build());
-		return new PagenatedResponseImpl<Venue,VenueImpl>(parser, "venues", VenueImpl.class);
+		return new PaginatedResponseImpl<Org,OrgImpl>(parser, "orgs", OrgImpl.class);
+	}
+
+	@Override
+	public PaginatedResponse<Venue> execute(VenueListQuery query) {
+		JsonParser parser = executeGet(query.build());
+		return new PaginatedResponseImpl<Venue,VenueImpl>(parser, "venues", VenueImpl.class);
 	}
 	
 	@Override
@@ -152,7 +152,42 @@ public class JFlyImpl implements JFly {
 		return new CreditCardImpl();
 	}
 
-	@Override
+    @Override
+    public OrgListQuery orgs() {
+        return new OrgListQueryImpl();
+    }
+
+    @Override
+    public VenueListQuery venues() {
+        return new VenueListQueryImpl();
+    }
+
+    @Override
+    public EventListQuery events() {
+        return new EventListQueryImpl();
+    }
+
+    @Override
+    public PastEventsQuery pastEvents() {
+        return new PastEventsQueryImpl();
+    }
+
+    @Override
+    public UpcomingEventsQuery upcomingEvents() {
+        return new UpcomingEventsQueryImpl();
+    }
+
+    @Override
+    public JustAnnouncedEventsQuery justAnnouncedEvents() {
+        return new JustAnnouncedEventsQueryImpl();
+    }
+
+    @Override
+    public FeaturedEventsQuery featuredEvents() {
+        return new FeaturedEventsQueryImpl();
+    }
+
+    @Override
 	public DoAllocate allocate(long inventoryId, int quantity) {
 		// TODO Auto-generated method stub
 		return null;

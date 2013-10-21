@@ -15,6 +15,8 @@
  */
 package com.github.bigtoast.jfly.api.event;
 
+import com.github.bigtoast.jfly.internal.http.event.EventListQueryImpl;
+
 public class EventQueryFactory {
 
 	public static EventListQuery list() {

@@ -1,0 +1,118 @@
+{
+    "id": "24589b60-e49d-11e0-9572-0800200c9a66",
+    "uri": "https://api.ticketfly.com/v2/purchase/cart/24589b60-e49d-11e0-9572-0800200c9a66",
+    "expired": false,
+    "expires": 1316794442,
+    "lineItems": [
+{
+"uri":
+"https://api.ticketfly.com/v2/purchase/cart/24589b60-e49d-11e0-9572-0800200c9a66/lineItems/145028",
+            "id": "145028",
+            "name": "Adult - Saturday Single Day Ticket",
+            "quantity": 3,
+            "delivery": {
+                "id": "USPS",
+                "charge": 6.99
+            },
+            "eventUri": "http://api.ticketfly.com/v2/purchase/event/44181",
+            "lineItemFees": 7,
+            "lineItemPrice": 65,
+            "purchaseLimit": 10
+}, {
+            "uri":
+"https://api.ticketfly.com/v2/purchase/cart/24589b60-e49d-11e0-9572-0800200c9a66/lineItems/145029",
+            "id": 145029,
+            "name": "Child - Saturday Single Day Ticket",
+            "quantity": 1,
+            "delivery": {
+                "id": "USPS",
+                "charge": 6.99
+            },
+            "eventUri": "http://api.ticketfly.com/v2/purchase/event/44181",
+            "lineItemFees": 7,
+            "lineItemPrice": 65,
+￼￼￼        "purchaseLimit": 10
+    }
+],
+"shipping": {
+    "charge": 6.99
+},
+"handling": {
+    "charge": 0
+}, "total": {
+    "charge": 123.45
+},
+"availableCardTypes": [
+    {
+        "name": "Visa",
+        "value": "VISA"
+    },
+    {
+        "name": "MasterCard",
+        "value": "MASTER_CARD"
+}, {
+        "value": "DISCOVER"
+    },
+    {
+        "name": "Diners Club",
+        "value": "DINERS_CLUB"
+}, {
+        "value": "AMERICAN_EXPRESS"
+    }
+],
+"shippingAddress": {
+    "emailAddress": "test@test.com",
+    "firstName": "Test",
+    "lastName": "User",
+    "address1": "85 Federal Street",
+    "address2": "#1",
+    "city": "San Francisco",
+    "stateProvince": "CA",
+    "postalCode": "94107",
+    "country": "USA",
+    "phoneNumber": "4151231234"
+},
+"payment": {
+    "card": {
+        "number": "1111",
+        "type": "VISA",
+        "expirationMonth": "03",
+        "expirationYear": "2012"
+    },
+    "address": {
+"name": "Discover",
+"name": "American Express",
+"emailAddress": "test@test.com",
+"firstName": "Test",
+"lastName": "User",
+"address1": "111 Testing Street",
+"address2": "",
+"city": "San Francisco",
+"stateProvince": "CA",
+"postalCode": "94110",
+"country": "USA",
+"phoneNumber": "4151231234"
+} },
+"events": {
+    "http://api.ticketfly.com/v2/purchase/event/44181": {
+        "id": 44181,
+        "uri": "http://api.ticketfly.com/v2/purchase/event/44181",
+￼￼￼"name": "Life is good Festival Saturday Tickets",
+"venue": {
+    "name": "Prowse Farm",
+    "timeZone": "America/New_York",
+    "address": {
+        "address1": "5 Blue Hill River Road",
+        "address2": "",
+        "city": "Canton",
+        "postalCode": "02021",
+        "stateProvince": "Massachusetts",
+        "lat": 42.208315,
+        "lon": -71.119309
+    }
+},
+"startDate": "2011-09-24T17:45:00Z",
+"endDate": null
+￼￼￼￼￼￼￼
+} }
+}

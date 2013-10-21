@@ -15,19 +15,20 @@
  */
 package com.github.bigtoast.jfly.api.venue;
 
+import com.github.bigtoast.jfly.Venue;
 import com.github.bigtoast.jfly.api.JFlyQuery;
 
-public interface VenueListQuery extends JFlyQuery<VenueListQuery>{
+public interface VenueListQuery extends JFlyQuery<VenueListQuery,Venue> {
 	
     public VenueListQuery withOrgId(long orgId);
 	
-	public VenueListQuery withVenueId(long venueId);
+	public VenueListQuery withId(long venueId);
 	
 	public boolean hasOrgId();
 	
-	public boolean hasVenueId();
+	public boolean hasId();
    
 	public long getOrgId();
 	
-	public long getVenueId();
+	public long getId();
 }

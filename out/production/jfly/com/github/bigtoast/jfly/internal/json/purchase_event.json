@@ -1,0 +1,189 @@
+{ "additionalInfo" : "4 ticket limit per person",
+  "customTextConfirmationBody" : "For additional venue info visit <a href=\"http://www.theindependentsf.com/venue/\" target=_blank><font color=\"blue\">www.theindependentsf.com</font></a>.",
+  "customTextConfirmationFooter" : "PARKING\r\n\r\nIf you have good karma then free parking is plentiful around The Independent. On most nights however it’s difficult to find street parking so we suggest either walking, biking, taking public transportation or paying for parking at the following lots:\r\n\r\nPanhandle Parking at 1377 Fell Street (between Fell and Oak on Broderick) – 3 blocks from The Independent.\r\n\r\nShell Gas Station on corner of Oak & Divisadero - 2 blocks from The Independent\r\n\r\nBehind Laundromat on corner of Oak & Divisadero - 2 blocks from The Independent\r\n\r\nGood luck!",
+  "customTextConfirmationHeader" : "21+ only. Valid photo ID required for entry. Support acts subject to change - no refunds. \r\n\r\nThe maximum number of tickets available for each event is the maximum number permitted per customer. Your name, credit card, address, and email address will be verified. Ticketfly and The Independent reserve the right to cancel any orders in excess of the stated ticket limit.\r\n\r\nAny tickets suspected of being purchased for the sole purpose of reselling can be cancelled at the discretion of The Independent/Ticketfly",
+  "endDate" : null,
+  "features" : { "hasPurchaseQuestions" : false,
+      "isReserved" : false
+    },
+  "fullTicketPurchaseUrl" : "http://stage.ticketfly.com/purchase/event/102119",
+  "hasPromo" : false,
+  "headliners" : "Yuck",
+  "id" : 102119,
+  "images" : { "eventImages" : { "large" : { "height" : 210,
+              "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-atlg.jpg",
+              "width" : 300
+            },
+          "large1" : { "height" : 200,
+              "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-atlg1.jpg",
+              "width" : 300
+            },
+          "medium" : { "height" : 140,
+              "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-atmd.jpg",
+              "width" : 200
+            },
+          "medium1" : { "height" : 133,
+              "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-atmd1.jpg",
+              "width" : 200
+            },
+          "original" : { "height" : 210,
+              "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-og.jpg",
+              "width" : 300
+            },
+          "small" : { "height" : 70,
+              "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-atsm.jpg",
+              "width" : 100
+            },
+          "small1" : { "height" : 67,
+              "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-atsm1.jpg",
+              "width" : 100
+            },
+          "square" : { "height" : 100,
+              "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-sq.jpg",
+              "width" : 100
+            },
+          "squareSmall" : { "height" : 60,
+              "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-sqsm.jpg",
+              "width" : 60
+            },
+          "xlarge" : { "height" : 210,
+              "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-atxl.jpg",
+              "width" : 300
+            },
+          "xlarge1" : { "height" : 210,
+              "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-atxl1.jpg",
+              "width" : 300
+            }
+        },
+      "headlinerImages" : [ { "large" : { "height" : 210,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-atlg.jpg",
+                "width" : 300
+              },
+            "large1" : { "height" : 200,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-atlg1.jpg",
+                "width" : 300
+              },
+            "medium" : { "height" : 140,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-atmd.jpg",
+                "width" : 200
+              },
+            "medium1" : { "height" : 133,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-atmd1.jpg",
+                "width" : 200
+              },
+            "original" : { "height" : 210,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-og.jpg",
+                "width" : 300
+              },
+            "small" : { "height" : 70,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-atsm.jpg",
+                "width" : 100
+              },
+            "small1" : { "height" : 67,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-atsm1.jpg",
+                "width" : 100
+              },
+            "square" : { "height" : 100,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-sq.jpg",
+                "width" : 100
+              },
+            "squareSmall" : { "height" : 60,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-sqsm.jpg",
+                "width" : 60
+              },
+            "xlarge" : { "height" : 210,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-atxl.jpg",
+                "width" : 300
+              },
+            "xlarge1" : { "height" : 210,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/07/32/57-atxl1.jpg",
+                "width" : 300
+              }
+          } ],
+      "supporterImages" : [ { "large" : { "height" : 150,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/20/61/41-atlg.jpg",
+                "width" : 300
+              },
+            "large1" : { "height" : 150,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/20/61/41-atlg1.jpg",
+                "width" : 300
+              },
+            "medium" : { "height" : 100,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/20/61/41-atmd.jpg",
+                "width" : 200
+              },
+            "medium1" : { "height" : 100,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/20/61/41-atmd1.jpg",
+                "width" : 200
+              },
+            "original" : { "height" : 300,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/20/61/41-og.jpg",
+                "width" : 600
+              },
+            "small" : { "height" : 50,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/20/61/41-atsm.jpg",
+                "width" : 100
+              },
+            "small1" : { "height" : 50,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/20/61/41-atsm1.jpg",
+                "width" : 100
+              },
+            "square" : { "height" : 100,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/20/61/41-sq.jpg",
+                "width" : 100
+              },
+            "squareSmall" : { "height" : 60,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/20/61/41-sqsm.jpg",
+                "width" : 60
+              },
+            "xlarge" : { "height" : 200,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/20/61/41-atxl.jpg",
+                "width" : 400
+              },
+            "xlarge1" : { "height" : 250,
+                "path" : "http://cdn-stage.ticketfly.com/i/00/00/20/61/41-atxl1.jpg",
+                "width" : 500
+              }
+          } ]
+    },
+  "inventory" : [ { "accessId" : 267965,
+        "available" : true,
+        "deliveryOptions" : [ { "charge" : 0,
+              "id" : "WILL_CALL",
+              "message" : "Your Tickets will be held at Will Call.  Please bring photo ID and credit card of purchase.",
+              "name" : "Will Call"
+            },
+            { "charge" : 0,
+              "id" : "PRINT_AT_HOME",
+              "message" : "Your tickets will be delivered in PDF format along with your order confirmation email.",
+              "name" : "Print At Home"
+            }
+          ],
+        "name" : "General Admission",
+        "price" : 15,
+        "purchaseLimit" : 4
+      } ],
+  "name" : "Yuck",
+  "offSale" : "2012-04-15T20:00:00",
+  "onSale" : "2012-03-02T12:00:00",
+  "promoterName" : null,
+  "sameDeliveryTypesAcrossAllInventoryTypes" : true,
+  "startDate" : "2012-04-15T20:00:00",
+  "status" : "Buy",
+  "statusCode" : "BUY",
+  "statusMessage" : "",
+  "supportingArtists" : "La Sera",
+  "ticketflyTicketed" : true,
+  "uri" : "http://api-stage.ticketfly.com/v2/purchase/event/102119",
+  "venue" : { "address" : { "address1" : "628 Divisadero St",
+          "address2" : "",
+          "city" : "San Francisco",
+          "lat" : 37.775401000000002,
+          "lon" : -122.43781199999999,
+          "postalCode" : "94117",
+          "stateProvince" : "CA"
+        },
+      "name" : "The Independent",
+      "timeZone" : "America/Los_Angeles"
+    }
+}

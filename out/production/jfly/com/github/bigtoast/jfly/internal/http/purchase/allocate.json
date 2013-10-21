@@ -1,0 +1,47 @@
+// Request URL:https://api-stage.ticketfly.com/v2/purchase/cart/912ebc45-f039-4125-91ff-36a778f33cb9/lineItems
+// Request Method:POST
+// Status Code:200 OK
+
+
+[ {"accessId":267965,"quantity":2,"delivery":"WILL_CALL"} ]
+
+
+// Request URL:https://api-stage.ticketfly.com/v2/purchase/cart/d8f64235-1916-411f-977a-3839db51502f/shippingAddress
+// Request Method:PUT
+// Status Code:202 Accepted
+
+{ "address1" : "asdf",
+  "address2" : "asdf",
+  "city" : "fdsafdsa",
+  "country" : "USA",
+  "emailAddress" : "asdf@asdf.com",
+  "firstName" : "asdf",
+  "lastName" : "asdf",
+  "phoneNumber" : "",
+  "postalCode" : "12345",
+  "stateProvince" : "AL"
+}
+
+
+// Request URL:https://api-stage.ticketfly.com/v2/purchase/cart/d8f64235-1916-411f-977a-3839db51502f/payment
+// Request Method:PUT
+// Status Code:200 OK
+
+{ "address" : { "address1" : "asdf",
+      "address2" : "asdf",
+      "city" : "fdsafdsa",
+      "country" : "USA",
+      "emailAddress" : "asdf@asdf.com",
+      "firstName" : "asdf",
+      "lastName" : "asdf",
+      "phoneNumber" : "",
+      "postalCode" : "12345",
+      "stateProvince" : "AL"
+    },
+  "card" : { "expirationMonth" : "12",
+      "expirationYear" : "2020",
+      "number" : "4444444444444448",
+      "securityCode" : "123",
+      "type" : "VISA"
+    }
+}

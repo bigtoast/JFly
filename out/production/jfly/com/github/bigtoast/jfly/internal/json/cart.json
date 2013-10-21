@@ -1,0 +1,70 @@
+{ "availableCardTypes" : [ { "name" : "Visa",
+        "value" : "VISA"
+      },
+      { "name" : "MasterCard",
+        "value" : "MASTER_CARD"
+      },
+      { "name" : "Discover",
+        "value" : "DISCOVER"
+      },
+      { "name" : "Diners Club",
+        "value" : "DINERS_CLUB"
+      },
+      { "name" : "American Express",
+        "value" : "AMERICAN_EXPRESS"
+      }
+    ],
+  "cartId" : "912ebc45-f039-4125-91ff-36a778f33cb9",
+  "events" : { "http://api-stage.ticketfly.com/v2/purchase/event/102119" : { "id" : 102119,
+          "isWillCallAvailable" : true,
+          "name" : "Yuck",
+          "startDate" : "2012-04-15T20:00:00",
+          "venue" : { "address" : { "address1" : "628 Divisadero St",
+                  "address2" : "",
+                  "city" : "San Francisco",
+                  "lat" : 37.775401000000002,
+                  "lon" : -122.43781199999999,
+                  "postalCode" : "94117",
+                  "stateProvince" : "CA"
+                },
+              "name" : "The Independent",
+              "timeZone" : "America/Los_Angeles"
+            }
+        } },
+  "expired" : false,
+  "expires" : "2012-04-11T22:35:14Z",
+  "expiresAbsoluteMillis" : 1334183714411,
+  "handling" : { "charge" : 0 },
+  "isPaymentRequired" : true,
+  "isReadyForSale" : false,
+  "isShippingRequired" : false,
+  "lineItems" : [ { "accessId" : 267965,
+        "currency" : "USD",
+        "delivery" : { "charge" : 0,
+            "id" : "WILL_CALL",
+            "message" : "Your Tickets will be held at Will Call.  Please bring photo ID and credit card of purchase.",
+            "name" : "Will Call"
+          },
+        "deliveryOptions" : [ { "id" : "WILL_CALL",
+              "message" : "Your Tickets will be held at Will Call.  Please bring photo ID and credit card of purchase.",
+              "name" : "Will Call"
+            },
+            { "id" : "PRINT_AT_HOME",
+              "message" : "Your tickets will be delivered in PDF format along with your order confirmation email.",
+              "name" : "Print At Home"
+            }
+          ],
+        "eventUri" : "http://api-stage.ticketfly.com/v2/purchase/event/102119",
+        "lineItemFees" : 4.6600000000000001,
+        "lineItemPrice" : 15,
+        "name" : "General Admission",
+        "purchaseLimit" : 4,
+        "quantity" : 2,
+        "uri" : "http://api-stage.ticketfly.com/v2/purchase/cart/912ebc45-f039-4125-91ff-36a778f33cb9/lineItems/267965"
+      } ],
+  "payment" : {  },
+  "shipping" : { "charge" : 0 },
+  "shippingAddress" : {  },
+  "total" : { "charge" : 39.32 },
+  "uri" : "http://api-stage.ticketfly.com/v2/purchase/cart/912ebc45-f039-4125-91ff-36a778f33cb9"
+}

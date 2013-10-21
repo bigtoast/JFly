@@ -1,0 +1,13 @@
+orgId * null The id of the Ticketfly Organization against which the API call will be executed. Use a comma separated
+list of ID values (ex: 1,2,3,4) to return information from more than one organization.
+venueId * null The id of the Ticketfly Venue against which the API call will be executed. Use a comma separated list of ID
+values (ex: 1,2,3,4) to return information from more than one venue.
+q N null Search string. Must be URL encoded.
+artistName N null Currently in beta. This is the artist name to use for searching. It will perform an exact (case-insensitive)
+match.
+pageNum N 1 The page number of results to return.
+maxResults N 25 Maximum number of results to return per request. The maximum allowed value is 200.
+tflyTicketed N  false  Restrict the results to include only events sold through Ticketfly 
+skin N null Specify the purchase process skin conifgured on ticketPurchaseUrls 
+fieldGroup N null Specify the group of fields to return (See Appendix B) 
+fields N null Specify the individual fields to return (See Appendix B)

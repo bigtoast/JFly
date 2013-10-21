@@ -20,6 +20,7 @@ import java.net.URL;
 
 import com.github.bigtoast.jfly.ImageMeta;
 
+import com.github.bigtoast.jfly.internal.util.JFlyUtils;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.JsonToken;
@@ -37,33 +38,37 @@ public class ImageMetaImpl implements ImageMeta {
 	private ImageDetailMeta xLarge;
 	private ImageDetailMeta xLarge1;
 	
-	public static class ImageDetailMetaImpl implements ImageMeta.ImageDetailMeta{
+	public static class ImageDetailMetaImpl implements ImageMeta.ImageDetailMeta {
 		private int width;
 		private int height;
 		private URL url;
 		
 		public ImageDetailMetaImpl(JsonParser parser) throws JsonParseException, IOException{
-		if (parser.nextToken() != JsonToken.START_OBJECT) {
-	        throw new IOException("Expected data to start with an Object");
-	      }
-	      
-	      while ( parser.nextToken() != JsonToken.END_OBJECT){
-	        String fname = parser.getCurrentName();
-	    	parser.nextToken();
-	    	
-	    	if (fname.equals("width")) 
-			    width = parser.getIntValue();
-		   
-		   else if (fname.equals("height")) 
-		    height = parser.getIntValue();
-		    
-		   else if (fname.equals("path")) 
-		    url = new URL(parser.getText());
-	    	  
-	      }
-		}
-		
-		
+            if (parser.getCurrentToken() != JsonToken.START_OBJECT) {
+                if ( parser.getCurrentToken() == JsonToken.VALUE_NULL )
+                    return;
+                throw new IOException("Expected data to start with an Object. Found " + parser.getCurrentToken() );
+            }
+
+            while ( parser.nextToken() != JsonToken.END_OBJECT ){
+                String fName = parser.getCurrentName();
+                parser.nextToken();
+
+                if (fName.equals("width"))
+                    width = parser.getIntValue();
+
+                else if (fName.equals("height"))
+                    height = parser.getIntValue();
+
+                else if (fName.equals("path"))
+                    url = JFlyUtils.parseURL(parser.getText());
+
+                else if ( parser.getCurrentToken() == JsonToken.START_OBJECT || parser.getCurrentToken() == JsonToken.START_ARRAY )
+                    parser.skipChildren();
+
+            }
+        }
+
 		@Override
 		public int getWidth() { return width; }
 
@@ -75,38 +80,42 @@ public class ImageMetaImpl implements ImageMeta {
 	}
 	
 	public ImageMetaImpl(JsonParser parser) throws JsonParseException, IOException {
-		  if (parser.nextToken() != JsonToken.START_OBJECT) {
-		    throw new IOException("Expected data to start with an Object");
-		  }
+        if (parser.getCurrentToken() != JsonToken.START_OBJECT) {
+            if ( parser.getCurrentToken() == JsonToken.VALUE_NULL )
+                return;
+            throw new IOException("Expected data to start with an Object. Found " + parser.getCurrentToken() );
+        }
 
-		  while (parser.nextToken() != JsonToken.END_OBJECT) {
-		   String fname = parser.getCurrentName();
-		   parser.nextToken();
-		   
-		   if ( fname.equals("original") ) 
-			   original = new ImageDetailMetaImpl( parser );
-		   else if ( fname.equals("square") ) 
-			   square = new ImageDetailMetaImpl( parser );
-		   else if ( fname.equals("squareSmall") ) 
-			   squareSmall = new ImageDetailMetaImpl( parser );
-		   else if ( fname.equals("small") ) 
-			   small = new ImageDetailMetaImpl( parser );
-		   else if ( fname.equals("small1") ) 
-			   small1 = new ImageDetailMetaImpl( parser );
-		   else if ( fname.equals("medium") ) 
-			   medium = new ImageDetailMetaImpl( parser );
-		   else if ( fname.equals("medium1") ) 
-			   medium1 = new ImageDetailMetaImpl( parser );
-		   else if ( fname.equals("large") ) 
-			   large = new ImageDetailMetaImpl( parser );
-		   else if ( fname.equals("large1") ) 
-			   large1 = new ImageDetailMetaImpl( parser );
-		   else if ( fname.equals("xlarge") ) 
-			   xLarge = new ImageDetailMetaImpl( parser );
-		   else if ( fname.equals("xLarge1") ) 
-			   xLarge1 = new ImageDetailMetaImpl( parser );
-		   
-		  }
+        while (parser.nextToken() != JsonToken.END_OBJECT) {
+            String fName = parser.getCurrentName();
+            parser.nextToken();
+
+            if ( fName.equals("original") )
+               original = new ImageDetailMetaImpl( parser );
+            else if ( fName.equals("square") )
+               square = new ImageDetailMetaImpl( parser );
+            else if ( fName.equals("squareSmall") )
+               squareSmall = new ImageDetailMetaImpl( parser );
+            else if ( fName.equals("small") )
+               small = new ImageDetailMetaImpl( parser );
+            else if ( fName.equals("small1") )
+               small1 = new ImageDetailMetaImpl( parser );
+            else if ( fName.equals("medium") )
+               medium = new ImageDetailMetaImpl( parser );
+            else if ( fName.equals("medium1") )
+               medium1 = new ImageDetailMetaImpl( parser );
+            else if ( fName.equals("large") )
+               large = new ImageDetailMetaImpl( parser );
+            else if ( fName.equals("large1") )
+               large1 = new ImageDetailMetaImpl( parser );
+            else if ( fName.equals("xlarge") )
+               xLarge = new ImageDetailMetaImpl( parser );
+            else if ( fName.equals("xLarge1") )
+               xLarge1 = new ImageDetailMetaImpl( parser );
+            else if ( parser.getCurrentToken() == JsonToken.START_OBJECT || parser.getCurrentToken() == JsonToken.START_ARRAY )
+                parser.skipChildren();
+
+        }
 		   
 	}
 	

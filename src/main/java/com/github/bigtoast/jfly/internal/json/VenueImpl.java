@@ -16,7 +16,10 @@
 package com.github.bigtoast.jfly.internal.json;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
+
+import com.github.bigtoast.jfly.internal.util.JFlyUtils;
 import org.codehaus.jackson.*;
 
 import com.github.bigtoast.jfly.ImageMeta;
@@ -41,50 +44,54 @@ public class VenueImpl implements Venue {
 	private double latitude;
 	private double longitude;
 	private ImageMeta image;
-	
-	
+
+
 	public VenueImpl(JsonParser parser) throws JsonParseException, IOException{
-		if (parser.nextToken() != JsonToken.START_OBJECT) {
-		    throw new IOException("Expected data to start with an Object");
-		  }
-	      
-	      while ( parser.nextToken() != JsonToken.END_OBJECT ){
-	    	  String fname = parser.getCurrentName();
-	          parser.nextToken();
-	          
-	          if ( fname.equals("id") )
-	        	  id = parser.getLongValue();
-	          else if ( fname.equals("name") )
-	        	  name = parser.getText();
-	          else if ( fname.equals("timeZone") )
-	        	  timeZone = parser.getText();
-	          else if ( fname.equals("address1") )
-	        	  address1 = parser.getText();
-	          else if ( fname.equals("address2") )
-	        	  address2 = parser.getText();
-	          else if ( fname.equals("city") )
-	        	  city = parser.getText();
-	          else if ( fname.equals("stateProvice") )
-	        	  stateProvince = parser.getText();
-	          else if ( fname.equals("postalCode") )
-	        	  postalCode = parser.getText();
-	          else if ( fname.equals("country"))
-	        	  country = parser.getText();
-	          else if ( fname.equals("url") )
-	        	  siteUrl = new URL( parser.getText() );
-	          else if ( fname.equals("blurb") )
-	        	  description = parser.getText();
-	          else if ( fname.equals("urlFacebook"))
-	        	  facebookUrl = new URL( parser.getText() );
-	          else if ( fname.equals("urlTwitter"))
-	        	  twitterUrl = new URL( parser.getText() );
-	          else if ( fname.equals("lat") )
-	        	  latitude = parser.getDoubleValue();
-	          else if ( fname.equals("lng") )
-	        	  longitude = parser.getDoubleValue();
-	          else if ( fname.equals("image") )
-	        	  image = new ImageMetaImpl( parser );
-	      }
+        if (parser.getCurrentToken() != JsonToken.START_OBJECT) {
+            if ( parser.getCurrentToken() == JsonToken.VALUE_NULL )
+                return;
+            throw new IOException("Expected data to start with an Object. Found " + parser.getCurrentToken() );
+        }
+
+        while ( parser.nextToken() != JsonToken.END_OBJECT ){
+          String fName = parser.getCurrentName();
+          parser.nextToken();
+
+          if ( fName.equals("id") )
+              id = parser.getLongValue();
+          else if ( fName.equals("name") )
+              name = parser.getText();
+          else if ( fName.equals("timeZone") )
+              timeZone = parser.getText();
+          else if ( fName.equals("address1") )
+              address1 = parser.getText();
+          else if ( fName.equals("address2") )
+              address2 = parser.getText();
+          else if ( fName.equals("city") )
+              city = parser.getText();
+          else if ( fName.equals("stateProvince") )
+              stateProvince = parser.getText();
+          else if ( fName.equals("postalCode") )
+              postalCode = parser.getText();
+          else if ( fName.equals("country"))
+              country = parser.getText();
+          else if ( fName.equals("url") )
+              siteUrl = JFlyUtils.parseURL( parser.getText() );
+          else if ( fName.equals("blurb") )
+              description = parser.getText();
+          else if ( fName.equals("urlFacebook"))
+              facebookUrl = JFlyUtils.parseURL(parser.getText());
+          else if ( fName.equals("urlTwitter"))
+              twitterUrl = JFlyUtils.parseURL( parser.getText() );
+          else if ( fName.equals("lat") )
+              latitude = Double.parseDouble( parser.getText() );
+          else if ( fName.equals("lng") )
+              longitude = Double.parseDouble( parser.getText() );
+          else if ( fName.equals("image") )
+              image = new ImageMetaImpl( parser );
+          else if ( parser.getCurrentToken() == JsonToken.START_OBJECT || parser.getCurrentToken() == JsonToken.START_ARRAY )
+              parser.skipChildren();
+        }
 	}
 
 	@Override
@@ -95,7 +102,7 @@ public class VenueImpl implements Venue {
 
 	@Override
 	public String getTimeZone() { return timeZone; }
-	
+
 	@Override
 	public String getAddress1() { return address1; }
 

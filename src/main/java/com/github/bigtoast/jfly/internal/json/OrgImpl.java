@@ -23,42 +23,50 @@ import com.github.bigtoast.jfly.Org;
 
 public class OrgImpl implements Org {
 
-	private static final long serialVersionUID = 2330273513558370162L;
-	
-	public static String ID        = "id";
-	public static String NAME      = "name";
-	public static String TIME_ZONE = "timeZone";
-	
-	private long id;
-	private String name;
-	private String timeZone;
-	
-	public OrgImpl(JsonParser parser) throws JsonParseException, IOException{
-		if (parser.nextToken() != JsonToken.START_OBJECT) {
-		    throw new IOException("Expected data to start with an Object");
-		  }
-	      
-	      while ( parser.nextToken() != JsonToken.END_OBJECT ){
-	    	  String fname = parser.getCurrentName();
-	          parser.nextToken();
-	       
-	          if ( fname.equals(ID) )
-	        	  id = parser.getLongValue();
-	          else if ( fname.equals(NAME) )
-	        	  name = parser.getText();
-	          else if ( fname.equals(TIME_ZONE))
-	        	  timeZone = parser.getText();
-	      }
-	}
-	
-	
-	@Override
-	public long getId() { return id; }
+    private static final long serialVersionUID = 2330273513558370162L;
 
-	@Override
-	public String getName() { return name; }
+    public static String ID = "id";
+    public static String NAME = "name";
+    public static String TIME_ZONE = "timeZone";
 
-	@Override
-	public String getTimeZone() { return timeZone; }
+    private long id;
+    private String name;
+    private String timeZone;
+
+    public OrgImpl(JsonParser parser) throws JsonParseException, IOException {
+        if (parser.getCurrentToken() != JsonToken.START_OBJECT) {
+            if (parser.getCurrentToken() == JsonToken.VALUE_NULL)
+                return;
+            throw new IOException("Expected data to start with an Object. Found " + parser.getCurrentToken());
+        }
+
+        while (parser.nextToken() != JsonToken.END_OBJECT) {
+            String fName = parser.getCurrentName();
+            parser.nextToken();
+
+            if (fName.equals(ID))
+                id = parser.getLongValue();
+            else if (fName.equals(NAME))
+                name = parser.getText();
+            else if (fName.equals(TIME_ZONE))
+                timeZone = parser.getText();
+        }
+    }
+
+
+    @Override
+    public long getId() {
+        return id;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String getTimeZone() {
+        return timeZone;
+    }
 
 }

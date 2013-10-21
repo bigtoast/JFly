@@ -21,7 +21,7 @@ import java.net.URL;
 
 		
 public interface Artist extends Serializable {
-	public long getId();
+	public Long getId();
 	public String getName();
 	public String getDescription();
 	public URL getOfficalWebsiteUrl();

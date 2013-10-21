@@ -33,11 +33,10 @@ public class AllocationRequestImpl extends JFlyRequestBase implements DoAllocate
 	
 	private static final long serialVersionUID = -5611247629102050527L;
 	
-	
-	
-	
-	
-	
+	private String promoCode;
+    private DeliveryType deliveryType;
+    private int quantity;
+    private long accessId;
 
 	@Override
 	public DoAllocate withPromoCode(String promoCode) {
@@ -69,5 +68,10 @@ public class AllocationRequestImpl extends JFlyRequestBase implements DoAllocate
 			throw new JFlyValidationException("inventory id must be set and a quantity larger than 0 must be set.");
 
 	}
+
+    @Override
+    public String build() throws JFlyValidationException {
+        throw new UnsupportedOperationException();
+    }
 
 }

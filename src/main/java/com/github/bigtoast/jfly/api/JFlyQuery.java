@@ -16,8 +16,14 @@
 
 package com.github.bigtoast.jfly.api;
 
+import com.github.bigtoast.jfly.JFly;
 
-public interface JFlyQuery<Q extends JFlyQuery<Q>> extends JFlyRequest {
+/**
+ * All queries have no side effects and return a paginated response.
+ * @param <Q> query type
+ * @param <R> result type contained in paginated response
+ */
+public interface JFlyQuery<Q extends JFlyQuery<Q,R>,R> extends JFlyRequest {
 	
 	public Q withMaxResults(int cnt);
 	
@@ -30,4 +36,6 @@ public interface JFlyQuery<Q extends JFlyQuery<Q>> extends JFlyRequest {
 	public boolean hasMaxResults();
 	
 	public boolean hasPageNum();
+
+    public PaginatedResponse<R> execute(JFly jFly);
 }

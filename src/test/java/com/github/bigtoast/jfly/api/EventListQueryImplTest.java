@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import com.github.bigtoast.jfly.api.event.EventListQuery;
-import com.github.bigtoast.jfly.api.event.EventListQueryImpl;
+import com.github.bigtoast.jfly.internal.http.event.EventListQueryImpl;
 
 public class EventListQueryImplTest {
 

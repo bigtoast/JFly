@@ -22,6 +22,8 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.github.bigtoast.jfly.api.purchase.DoAllocate;
+import com.github.bigtoast.jfly.api.purchase.SetPaymentCommand;
 import org.codehaus.jackson.JsonFactory;
 import org.codehaus.jackson.JsonGenerator;
 
@@ -59,12 +61,12 @@ public class AddToCartCommandImpl extends CartRequestBase<AddToCartCommandImpl> 
 				generator.writeNumber(lineItem.getAccessId());
 				generator.writeFieldName(QUANTITY);
 				generator.writeNumber(lineItem.getQuantity());
-				generator.writeStringField(DELIVERY_TYPE, lineItem.getDe)
+				generator.writeStringField(DELIVERY_TYPE, lineItem.getDeliveryOptions().get(0).getName());
 			}
 			generator.writeEndArray();
 			
 			generator.writeStartObject();
-			if ( deliveryType != null )
+			/*if ( deliveryType != null )
 				generator.writeStringField(DELIVERY_TYPE, deliveryType.toString() );
 			
 			if ( checkHas( accessId ) )
@@ -78,7 +80,7 @@ public class AddToCartCommandImpl extends CartRequestBase<AddToCartCommandImpl> 
 			
 			if ( promoCode != null ) {
 				generator.writeStringField(PROMO_CODE, promoCode);
-			}
+			} */
 			
 			generator.writeEndObject();
 		
@@ -87,18 +89,26 @@ public class AddToCartCommandImpl extends CartRequestBase<AddToCartCommandImpl> 
 		}
 		return writer.toString();
 	}
-	
-	@Override
-	public String build() throws JFlyValidationException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public void validate() throws JFlyValidationException {
-		if ( ! ( accessId > 0  && quantity > 0 ) )
-			throw new JFlyValidationException("inventory id must be set and a quantity larger than 0 must be set.");		
+		//if ( ! ( accessId > 0  && quantity > 0 ) )
+		//	throw new JFlyValidationException("inventory id must be set and a quantity larger than 0 must be set.");
 	}
 
-	
+
+    @Override
+    public AddToCartCommand withDoAllocate(DoAllocate doIt) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public AddToCartCommand withSetPayment(SetPaymentCommand payment) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public String buildBody() throws JFlyValidationException {
+        throw new UnsupportedOperationException();
+    }
 }

@@ -17,13 +17,12 @@ package com.github.bigtoast.jfly.internal.http;
 
 import static org.junit.Assert.*;
 
+import com.github.bigtoast.jfly.api.PaginatedResponse;
 import org.junit.Test;
 
-import com.github.bigtoast.jfly.DeliveryCharge.DeliveryType;
 import com.github.bigtoast.jfly.Event;
 import com.github.bigtoast.jfly.JFly;
 import com.github.bigtoast.jfly.JFlyFactory;
-import com.github.bigtoast.jfly.api.PagenatedResponse;
 import com.github.bigtoast.jfly.api.event.EventQueryFactory;
 
 public class JFlyImplTests {
@@ -32,7 +31,7 @@ public class JFlyImplTests {
 	public final void testListEvents() {
 		JFly jfly = JFlyFactory.getInstance(null);
 	
-		PagenatedResponse<Event> resp = jfly.execute(EventQueryFactory.list().withOrgId(7));
+		PaginatedResponse<Event> resp = jfly.execute(EventQueryFactory.list().withOrgId(7));
 		
 		assertTrue( resp.totalResults() > 0 );
 		assertTrue( resp.maxResults() > 0 );
@@ -47,9 +46,9 @@ public class JFlyImplTests {
 		jfly.cart( cartId ).get();
 		
 		// allocate tix
-		jfly.allocate(123, 2).execute();
+		//jfly.allocate(123, 2).execute();
 		// or
-		jfly.cart().withDoAllocate( jfly.allocate(123, 5).withPromoCode("123") ).execute();
+		//jfly.cart().withDoAllocate( jfly.allocate(123, 5).withPromoCode("123") ).execute();
 		
 		// delete a cart
 		jfly.cart( cartId ).delete();
@@ -61,15 +60,15 @@ public class JFlyImplTests {
 		jfly.cart( cartId ).lineItem(123).delete();
 		
 		// update a line item
-		jfly.cart( cartId ).lineItem( 123 ).update().withQuantity(5).withPromoCode("asdf").execute();
-		jfly.cart( cartId ).lineItem( 123 ).update().withDeliveryType(DeliveryType.USPS).execute();
+		//jfly.cart( cartId ).lineItem( 123 ).update().withQuantity(5).withPromoCode("asdf").execute();
+		//jfly.cart( cartId ).lineItem( 123 ).update().withDeliveryType(DeliveryType.USPS).execute();
 		
 		// set cart payment
-		jfly.cart( cartId ).withPayment( jfly.payment().withBillingAddress( jfly.address.withStreet() ) );
-		jfly.cart(cartId).payment().withAddress(
+		//jfly.cart( cartId ).withPayment( jfly.payment().withBillingAddress( jfly.address.withStreet() ) );
+		//jfly.cart(cartId).payment().withAddress(
 		
 		
-		jfly.cart().withDoAllocate( jfly.allocate(123, 2) ).execute();
+		//jfly.cart().withDoAllocate( jfly.allocate(123, 2) ).execute();
 		
 	}
 

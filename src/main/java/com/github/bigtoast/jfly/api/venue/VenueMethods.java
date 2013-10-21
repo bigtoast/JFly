@@ -16,9 +16,12 @@
 package com.github.bigtoast.jfly.api.venue;
 
 import com.github.bigtoast.jfly.Venue;
-import com.github.bigtoast.jfly.api.PagenatedResponse;
+import com.github.bigtoast.jfly.api.PaginatedResponse;
 
 public interface VenueMethods {
 
-	public PagenatedResponse<Venue> execute(VenueListQuery query);
+    /** build a new venue list query object */
+    public VenueListQuery venues();
+
+	public PaginatedResponse<Venue> execute(VenueListQuery query);
 }
